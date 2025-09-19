@@ -224,7 +224,7 @@ class AuxiliaryTrainingWrapper(torch.nn.Module):
 
     """
 
-    def __init__(self, module_to_save, adapter_name, **kwargs):
+    def __init__(self, module_to_save, adapter_name:str, **kwargs):
         """Extra kwargs will be passed to `self.init_modules` and `self.update`."""
         super().__init__()
         self.original_module = module_to_save
@@ -889,7 +889,7 @@ def _set_trainable(
     module_names,
     inference_mode: bool,
     strict_module_check: bool = False,
-    wrapper_cls: Optional[AuxiliaryTrainingWrapper] = None,
+    wrapper_cls: Optional[type[AuxiliaryTrainingWrapper]] = None,
     activate_adapter: bool = True,
     **wrapper_kwargs,
 ):
